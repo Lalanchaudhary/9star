@@ -28,6 +28,23 @@
 
   gtag('config', 'AW-18158642923');
 </script>
+<!-- Event snippet for Outbound click conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18158642923/1iVzCLj3hKwcEOvN29JD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
   </head>
   <body>
     <div class="loader" aria-label="Loading website">
@@ -316,7 +333,12 @@
       </div>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/15559097827" aria-label="Chat on WhatsApp">
+    <a
+      class="whatsapp"
+      href="https://wa.me/917979077669"
+      aria-label="Chat on WhatsApp"
+      onclick="return gtag_report_conversion('https://wa.me/917979077669');"
+    >
       <i class="fa-brands fa-whatsapp"></i>
     </a>
     <button class="back-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
