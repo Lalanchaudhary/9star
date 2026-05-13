@@ -16,42 +16,22 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23050505'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-size='24' font-family='Georgia,serif' font-weight='700' fill='%23d6aa4f'%3E9%3C/text%3E%3C/svg%3E" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="style.css" />
-    <!-- <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    /> -->
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18158642923"></script>
+    />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18159071911"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'AW-18158642923');
-</script>
-<!-- Event snippet for Outbound click conversion page
-In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
-<script>
-function gtag_report_conversion(url) {
-  var callback = function () {
-    if (typeof(url) != 'undefined') {
-      window.location = url;
-    }
-  };
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18158642923/1iVzCLj3hKwcEOvN29JD',
-      'event_callback': callback
-  });
-  return false;
-}
+  gtag('config', 'AW-18159071911');
 </script>
 
   </head>
   <body>
-    <div class="loader" aria-label="Loading website">
-      <div class="loader-mark">9STAR</div>
-    </div>
-
     <header class="site-header" id="top">
       <nav class="navbar" aria-label="Main navigation">
         <a href="#home" class="logo" aria-label="9STAR home">9<span>STAR</span></a>
@@ -350,6 +330,20 @@ function gtag_report_conversion(url) {
         <h2 id="modalTitle">Booking request received</h2>
         <p id="bookingSummary"></p>
         <a href="#contact" class="btn btn-primary modal-action">Contact Concierge</a>
+      </div>
+    </div>
+
+    <div class="image-popup" id="imagePopup" role="dialog" aria-modal="true" aria-label="9STAR offer">
+      <div class="image-popup-card">
+        <button class="image-popup-close" aria-label="Close popup">&times;</button>
+        <a
+          class="image-popup-link"
+          href="https://wa.me/917979077669"
+          aria-label="Chat with 9STAR on WhatsApp"
+          onclick="return gtag_report_conversion('https://wa.me/917979077669');"
+        >
+          <img src="9star.png" alt="9STAR offer" />
+        </a>
       </div>
     </div>
 

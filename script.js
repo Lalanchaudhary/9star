@@ -2,7 +2,6 @@ const body = document.body;
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelectorAll(".nav-links a");
-const loader = document.querySelector(".loader");
 const backTop = document.querySelector(".back-top");
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
@@ -12,13 +11,25 @@ const modal = document.querySelector("#bookingModal");
 const modalClose = document.querySelector(".modal-close");
 const bookingSummary = document.querySelector("#bookingSummary");
 const newsletter = document.querySelector(".newsletter");
+const imagePopup = document.querySelector("#imagePopup");
+const imagePopupClose = document.querySelector(".image-popup-close");
 
 let currentSlide = 0;
 let carouselTimer;
 
-window.addEventListener("load", () => {
-  setTimeout(() => loader.classList.add("hidden"), 450);
-});
+function openImagePopup() {
+  imagePopup.classList.add("show");
+  body.classList.add("modal-open");
+}
+
+function closeImagePopup() {
+  imagePopup.classList.remove("show");
+  if (!modal.classList.contains("show")) {
+    body.classList.remove("modal-open");
+  }
+}
+
+requestAnimationFrame(openImagePopup);
 
 function updateHeader() {
   header.classList.toggle("scrolled", window.scrollY > 20);
@@ -105,6 +116,7 @@ document.querySelectorAll(".page-section").forEach((section) => {
 });
 
 function openModal(message) {
+  closeImagePopup();
   bookingSummary.textContent = message;
   modal.classList.add("show");
   body.classList.add("modal-open");
@@ -141,7 +153,14 @@ modal.addEventListener("click", (event) => {
   if (event.target === modal) closeModal();
 });
 
+imagePopupClose.addEventListener("click", closeImagePopup);
+
+imagePopup.addEventListener("click", (event) => {
+  if (event.target === imagePopup) closeImagePopup();
+});
+
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && imagePopup.classList.contains("show")) closeImagePopup();
   if (event.key === "Escape" && modal.classList.contains("show")) closeModal();
 });
 

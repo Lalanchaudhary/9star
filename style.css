@@ -49,33 +49,6 @@ textarea {
   font: inherit;
 }
 
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: grid;
-  place-items: center;
-  background: #050505;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-}
-
-.loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.loader-mark {
-  display: grid;
-  place-items: center;
-  width: 112px;
-  height: 112px;
-  border: 1px solid var(--line);
-  color: var(--gold-light);
-  font-family: Georgia, "Times New Roman", serif;
-  letter-spacing: 3px;
-  animation: pulse 1.4s ease-in-out infinite;
-}
-
 .site-header {
   position: fixed;
   inset: 0 0 auto;
@@ -729,6 +702,67 @@ details p {
   margin-top: 12px;
 }
 
+.image-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 2200;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.78);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.image-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-popup-card {
+  position: relative;
+  display: grid;
+  max-width: min(94vw, 760px);
+  max-height: 88vh;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #050505;
+  box-shadow: var(--shadow);
+}
+
+.image-popup-link {
+  display: grid;
+  cursor: pointer;
+}
+
+.image-popup-link img {
+  width: auto;
+  height: auto;
+  max-width: min(94vw, 760px);
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+}
+
+.image-popup-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--gold-light);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -738,18 +772,6 @@ details p {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 0.72;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
 }
 
 @media (max-width: 1080px) {
