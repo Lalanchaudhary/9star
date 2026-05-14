@@ -30,6 +30,23 @@
 
   gtag('config', 'AW-18162145350');
 </script>
+<!-- Event snippet for Outbound click conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18162145350/6LJYCICr9KwcEMawsdRD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 
 
   </head>
@@ -335,7 +352,7 @@
       </div>
     </div>
 
-    <!-- <div class="image-popup" id="imagePopup" role="dialog" aria-modal="true" aria-label="9STAR offer">
+    <div class="image-popup" id="imagePopup" role="dialog" aria-modal="true" aria-label="9STAR offer">
       <div class="image-popup-card">
         <button class="image-popup-close" aria-label="Close popup">&times;</button>
         <a
@@ -347,7 +364,7 @@
           <img src="9star.png" alt="9STAR offer" />
         </a>
       </div>
-    </div> -->
+    </div>
 
     <script src="script.js"></script>
   </body>
